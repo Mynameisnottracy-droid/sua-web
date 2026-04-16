@@ -40,11 +40,11 @@ function EventCard({ event }: { event: Event }) {
   return (
     <a
       href={event.slug.current === "#" ? "#" : `/events/${event.slug.current}`}
-      style={{ display: "flex", gap: "0", backgroundColor: "#EBE9E1", textDecoration: "none", overflow: "hidden", height: "238px" }}
+      style={{ display: "flex", gap: "clamp(12px, 2vw, 20px)", backgroundColor: "#EBE9E1", textDecoration: "none", overflow: "hidden" }}
       className="group"
     >
       {/* Bild med badge */}
-      <div style={{ width: "160px", minWidth: "160px", height: "238px", position: "relative", backgroundColor: "#D0CCC4", flexShrink: 0 }}>
+      <div style={{ width: "clamp(100px, 20vw, 160px)", minWidth: "clamp(100px, 20vw, 160px)", aspectRatio: "1/1", position: "relative", backgroundColor: "#D0CCC4", flexShrink: 0 }}>
         {imageUrl && (
           <Image src={imageUrl} alt={event.rubrik} fill style={{ objectFit: "cover" }} />
         )}
@@ -56,22 +56,22 @@ function EventCard({ event }: { event: Event }) {
       </div>
 
       {/* Info */}
-      <div style={{ width: "240px", minWidth: "240px", padding: "20px 18px", display: "flex", flexDirection: "column", gap: "4px", overflow: "hidden" }}>
+      <div style={{ flex: 1, padding: "16px 18px 16px 0", display: "flex", flexDirection: "column", gap: "4px", overflow: "hidden", minWidth: 0 }}>
         {/* Datum */}
-        <div style={{ fontFamily: "Helvetica, Arial, sans-serif", fontWeight: 900, fontSize: "20px", letterSpacing: "-0.02em", lineHeight: 1, color: "#201515" }}>
+        <div style={{ fontFamily: "Helvetica, Arial, sans-serif", fontWeight: 900, fontSize: "clamp(1.1rem, 2.5vw, 1.5rem)", letterSpacing: "-0.02em", lineHeight: 1, color: "#201515" }}>
           {dayNum} {month} {year}
         </div>
         {/* Tid */}
-        <div style={{ fontFamily: "Helvetica, Arial, sans-serif", fontWeight: 400, fontSize: "12px", color: "#555555" }}>
+        <div style={{ fontFamily: "Helvetica, Arial, sans-serif", fontWeight: 400, fontSize: "clamp(0.8rem, 1.5vw, 0.95rem)", color: "#555555" }}>
           {time}{endTime && ` – ${endTime}`}
         </div>
         {/* Rubrik */}
-        <div style={{ fontFamily: "Helvetica, Arial, sans-serif", fontWeight: 700, fontSize: "14px", color: "#201515", lineHeight: 1.3, marginTop: "6px" }} className="group-hover:underline underline-offset-2">
+        <div style={{ fontFamily: "Helvetica, Arial, sans-serif", fontWeight: 700, fontSize: "clamp(0.95rem, 1.8vw, 1.15rem)", color: "#201515", lineHeight: 1.3, marginTop: "6px" }} className="group-hover:underline underline-offset-2">
           {event.rubrik}
         </div>
         {/* Plats */}
         {event.plats && (
-          <div style={{ fontFamily: "Helvetica, Arial, sans-serif", fontWeight: 400, fontSize: "12px", color: "#888888", marginTop: "4px" }}>
+          <div style={{ fontFamily: "Helvetica, Arial, sans-serif", fontWeight: 400, fontSize: "clamp(0.75rem, 1.2vw, 0.875rem)", color: "#888888", marginTop: "4px" }}>
             {event.plats}
           </div>
         )}
