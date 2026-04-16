@@ -84,7 +84,9 @@ export default async function EventsPage() {
   let events: Event[] = [];
   try {
     const fetched = await getEvents();
-    events = fetched?.length > 0 ? fetched : FALLBACK_EVENTS;
+    const real = fetched || [];
+    const needed = Math.max(0, 4 - real.length);
+    events = [...real, ...FALLBACK_EVENTS.slice(0, needed)];
   } catch {
     events = FALLBACK_EVENTS;
   }
