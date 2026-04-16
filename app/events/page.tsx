@@ -40,23 +40,23 @@ function EventCard({ event }: { event: Event }) {
   return (
     <a
       href={event.slug.current === "#" ? "#" : `/events/${event.slug.current}`}
-      style={{ display: "flex", gap: "0", backgroundColor: "#EBE9E1", textDecoration: "none", overflow: "hidden" }}
+      style={{ display: "flex", gap: "0", backgroundColor: "#EBE9E1", textDecoration: "none", overflow: "hidden", height: "238px" }}
       className="group"
     >
       {/* Bild med badge */}
-      <div style={{ width: "120px", minWidth: "120px", height: "120px", position: "relative", backgroundColor: "#D0CCC4", flexShrink: 0 }}>
+      <div style={{ width: "160px", minWidth: "160px", height: "238px", position: "relative", backgroundColor: "#D0CCC4", flexShrink: 0 }}>
         {imageUrl && (
           <Image src={imageUrl} alt={event.rubrik} fill style={{ objectFit: "cover" }} />
         )}
         {event.kategori && (
-          <div style={{ position: "absolute", top: "8px", left: "8px", backgroundColor: "#FE5000", color: "#FFFFFF", fontFamily: "Helvetica, Arial, sans-serif", fontWeight: 700, fontSize: "9px", textTransform: "uppercase", letterSpacing: "0.08em", padding: "3px 8px", borderRadius: "99px", whiteSpace: "nowrap" }}>
+          <div style={{ position: "absolute", top: "12px", left: "0", width: "87px", height: "35px", backgroundColor: "#FE5000", color: "#FFFFFF", fontFamily: "Helvetica, Arial, sans-serif", fontWeight: 700, fontSize: "9px", textTransform: "uppercase", letterSpacing: "0.06em", display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "0 6px" }}>
             {event.kategori}
           </div>
         )}
       </div>
 
       {/* Info */}
-      <div style={{ padding: "14px 16px", display: "flex", flexDirection: "column", gap: "3px", flex: 1, minWidth: 0 }}>
+      <div style={{ width: "240px", minWidth: "240px", padding: "20px 18px", display: "flex", flexDirection: "column", gap: "4px", overflow: "hidden" }}>
         {/* Datum */}
         <div style={{ fontFamily: "Helvetica, Arial, sans-serif", fontWeight: 900, fontSize: "20px", letterSpacing: "-0.02em", lineHeight: 1, color: "#201515" }}>
           {dayNum} {month} {year}
@@ -66,12 +66,12 @@ function EventCard({ event }: { event: Event }) {
           {time}{endTime && ` – ${endTime}`}
         </div>
         {/* Rubrik */}
-        <div style={{ fontFamily: "Helvetica, Arial, sans-serif", fontWeight: 700, fontSize: "14px", color: "#201515", lineHeight: 1.3, marginTop: "4px" }} className="group-hover:underline underline-offset-2">
+        <div style={{ fontFamily: "Helvetica, Arial, sans-serif", fontWeight: 700, fontSize: "14px", color: "#201515", lineHeight: 1.3, marginTop: "6px" }} className="group-hover:underline underline-offset-2">
           {event.rubrik}
         </div>
         {/* Plats */}
         {event.plats && (
-          <div style={{ fontFamily: "Helvetica, Arial, sans-serif", fontWeight: 400, fontSize: "12px", color: "#888888", marginTop: "2px" }}>
+          <div style={{ fontFamily: "Helvetica, Arial, sans-serif", fontWeight: 400, fontSize: "12px", color: "#888888", marginTop: "4px" }}>
             {event.plats}
           </div>
         )}
